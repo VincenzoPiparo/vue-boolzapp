@@ -11,7 +11,7 @@ img{
     width: 100%;
 }
 i{
-    font-size: 25px;
+    font-size: 20px;
 }
 ul{
     list-style-type: none;
@@ -26,7 +26,7 @@ ul{
     background-color: #009588;
 }
 
-.container_app_left{
+.container_app{
     width: 80%;
     display: flex;
 }
@@ -40,14 +40,14 @@ ul{
 .col_right{
     width: 65%;
     /* test */
-    background-color: red;
     height: 800px;
+    background-color: white;
 }
 /* USER */
 .user{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 15px 0;
     background-color: #eaeaea;
 }
@@ -71,7 +71,9 @@ ul{
 .serving{
     display: flex;
     align-items: center;
-    padding: 12px 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
     background-color: #8edafb;
 }
 .logo_serving{
@@ -111,4 +113,33 @@ input{
 }
 ul li{
     padding: 16px 21px;
+}
+/* RIGHT COL */
+.present_user{
+    background-color: #eaeaea;
+    border-left: 1px solid lightgrey;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.present_img_user{
+    width: 45px;
+    border-radius: 50%;
+}
+.present_user_info{
+    display: flex;
+    align-items: center;
+}
+.user_name{
+    font-size: 15px;
+    font-weight: bold;
+}
+.last_access{
+    font-size: 12px;
+    color: #52798a;
+}
+.present_action i{
+    padding: 0 5px;
+    color: #b1b1b1;
 }

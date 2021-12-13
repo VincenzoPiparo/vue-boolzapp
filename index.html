@@ -12,63 +12,107 @@
 </head>
 <body>
     <!-- COLLEGAMENTO VUEJS -->
-
     <div id="root">
-        <!-- PREPARARAZIONE DEL LAYOUT -->
+        <!-- PREPARAZIONE LAYOUT -->
         <div class="back_top">
-            <div class="container_app"> 
-                <!-- COL LEFT -->
-                <div class="col_left">
-                    <!-- CHAT -->
-                    <div class="user">
-                        <div class="info_user">
-                            <img src="img/avatar_io.jpg" alt="my_avatar">
-                            <span>Nome Utente</span>
+            <div class="container_app">
+                <!-- COLUMN LEFT -->
+                    <div class="col_left">
+                        <!-- CHAT -->
+                        <div class="user">
+                            <div class="info_user">
+                                <img src="img/avatar_io.jpg" alt="my_avatar">
+                                <span>Nome Utente</span>
+                            </div>
                             <!-- IN INTERACTION ICONS -->
-                            <div class="interations_icons">
+                            <div class="interactions_icon">
                                 <i class="fas fa-circle-notch"></i>
                                 <i class="fas fa-comment-alt"></i>
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
-                            <!-- IN SERVING -->
-                            <div class="serving">
-                                <div class="logo_serving">
-                                    <i class="fas fa-bell-slash"></i>
+                        </div>
+                        <!-- IN SERVING -->
+                        <div class="serving">
+                            <div class="logo_serving">
+                                <i class="fas fa-bell-slash"></i>
+                            </div>
+                            <!-- TEXT SERVING -->
+                            <div class="text_serving">
+                                <div class="received_serving">
+                                    Ricevi notifiche di nuovi messaggi
                                 </div>
-                                <!-- TEXT SERVING -->
-                                <div class="text_serving">
-                                    <div class="received_serving">
-                                        Ricevi notifiche di nuovi messaggi
+
+                                <div class="working_serving">
+                                    Attiva notifiche desktop
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SEARCH AREA -->
+                        <div class="quest_chats">
+                            <i class="fas fa-search"></i>
+                            <input type="text"  placeholder="Cerca o inizia una nuova chat">
+                            
+                        </div>
+                        <!-- LIST USER -->
+                        <div class="list_user">
+                            <ul>
+                                <!-- <li>
+                                    <img src="img/avatar_1.jpg" alt="avatar_1">
+                                    <span>Michele</span>
+                                </li>
+                                <li>
+                                    <img src="img/avatar_2.jpg" alt="avatar_2">
+                                    <span>Fabio</span>
+                                </li>
+                                <li>
+                                    <img src="img/avatar_3.jpg" alt="avatar_3">
+                                    <span>Samuele</span>
+                                </li>
+                                <li>
+                                    <img src="img/avatar_4.jpg" alt="avatar_4">
+                                    <span>Luisa</span>
+                                </li> -->
+                                <li v-for="contact in contacts">
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                    <span>{{ contact.name }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END CHAT LISTS -->
+                    </div>
+                <!-- END COL LEFT -->
+                
+                <!-- COL RIGHT -->
+                    <div class="col_right">
+                        <!-- CHAT USERS -->
+                        <div class="present_user">
+                            <div class="present_user_info">
+                                <div class="present_img_user">
+                                    <img src="img/avatar_3.jpg" alt="avatar_3">
+                                </div>
+
+                                <div class="present_text">
+                                    <div class="user_name">
+                                        Samuele
                                     </div>
-                                    <div class="working_serving">
-                                        Attiva le notifiche desktop
+
+                                    <div class="last_acces">
+                                        Ultimo accesso oggi alle
                                     </div>
                                 </div>
-                            </div> 
-                             <!-- SEARCH AREA -->
-                                <div class="quest_chats">
-                                    <input type="text" placeholder="Cerca o inizia una nuova chat">
-                                </div>
-                                <!-- LIST USER -->
-                                <div class="list_user">
-                                    <ul>
-                                        <li> <img src="img/avatar_1.jpg" alt="avatar_1"> </li>
-                                        <span>Michele</span>
-                                        <li> <img src="img/avatar_2.jpg" alt="avatar_2"> </li>
-                                        <span>Fabio</span>
-                                        <li> <img src="img/avatar_3.jpg" alt="avatar_3"> </li>
-                                        <span>Samuele</span>
-                                        <li> <img src="img/avatar_4.jpg" alt="avatar_4"> </li>
-                                        <span>Luisa</span>
-                                    </ul>
-                             </div>
+                            </div>
+
+                            <div class="present_action">
+                                <i class="fas fa-search"></i>
+                                <i class="fas fa-paperclip"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- END COL LEFT -->
-                <!-- COL RIGHT -->
+                <!-- END COLUMN RIGHT -->
             </div>
         </div>
+    </div>
         
 
 
