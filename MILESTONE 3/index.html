@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+    <!-- COLLEGAMENTO VUEJS -->
+    <div id="root">
+        <!-- PREPARAZIONE LAYOUT -->
+        <div class="back_top">
+            <div class="container_app">
+                <!-- COLUMN LEFT -->
+                    <div class="col_left">
+                        <!-- CHAT -->
+                        <div class="user">
+                            <div class="info_user">
+                                <img src="img/avatar_io.jpg" alt="my_avatar">
+                                <span>Nome Utente</span>
+                            </div>
+                            <!-- IN INTERACTION ICONS -->
+                            <div class="interactions_icon">
+                                <i class="fas fa-circle-notch"></i>
+                                <i class="fas fa-comment-alt"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <!-- IN SERVING -->
+                        <div class="serving">
+                            <div class="logo_serving">
+                                <i class="fas fa-bell-slash"></i>
+                            </div>
+                            <!-- TEXT SERVING -->
+                            <div class="text_serving">
+                                <div class="received_serving">
+                                    Ricevi notifiche di nuovi messaggi
+                                </div>
+
+                                <div class="working_serving">
+                                    Attiva notifiche desktop
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SEARCH AREA -->
+                        <div class="quest_chats">
+                            <div class="icon_in">
+                                <i class="fas fa-search"></i>
+                                <input type="text"  placeholder="Cerca o inizia una nuova chat">    
+                            </div>
+                        </div>
+                        <!-- LIST USER -->
+                        <div class="list_user">
+                            <ul>
+                                <li @click="changeUsers(index)" v-for="(contact, index) in contacts">
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                    <span>{{ contact.name }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END CHAT LISTS -->
+                    </div>
+                <!-- END COL LEFT -->
+                
+                <!-- COL RIGHT -->
+                    <div class="col_right">
+                        <!-- CHAT USERS -->
+                        <div class="present_user">
+                            <div class="present_user_info">
+                                <!-- CICLO V FOR PER SWITCHARE UTENTE OGNI QUALVOLTA SI CLICCA SU UN DIVERSO UTENTE -->
+                                <div class="present_img_user">
+                                    <!-- USARE IL V-BIND PER SELEZIONARE L'IMMAGINE DELL'USER DIVERSA AD OGNI CHANGE -->
+                                    <img :src="'img/avatar' + contacts[actived].avatar + '.jpg'" alt="">
+                                </div>
+
+                                <div class="present_text">
+                                    <div class="user_name">
+                                        {{ contacts[actived].name }}
+                                    </div>
+
+                                    <div class="last_acces">
+                                        Ultimo accesso oggi alle
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="present_action">
+                                <i class="fas fa-search"></i>
+                                <i class="fas fa-paperclip"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                         <!-- CHAT AREA LIVE -->
+                    <div class="chat_live">
+                        <ul>
+                            <li v-for="(element, index) in contacts[actived].messages"
+                            :class="element.status === 'sent' ? 'sent' : 'received'">
+                                {{ element.text }}
+                                <!-- <span>{{ element.date}}</span> -->
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- KIND MESAGGES -->
+                    <div class="kind_message">
+                        <div class="emoticon">
+                            <i class="far fa-smile"></i>
+                        </div>
+                        <div class="range_text">
+                            <input type="text" placeholder="Scrivi un messaggio">
+                        </div>
+                        <div class="message_item">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- END CHAT AREA LIVE -->
+                <!-- END COLUMN RIGHT -->
+            </div>
+        </div>
+    </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
