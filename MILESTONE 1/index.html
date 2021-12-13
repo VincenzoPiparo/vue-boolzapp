@@ -49,9 +49,10 @@
                         </div>
                         <!-- SEARCH AREA -->
                         <div class="quest_chats">
-                            <i class="fas fa-search"></i>
-                            <input type="text"  placeholder="Cerca o inizia una nuova chat">
-                            
+                            <div class="icon_in">
+                                <i class="fas fa-search"></i>
+                                <input type="text"  placeholder="Cerca o inizia una nuova chat">    
+                            </div>
                         </div>
                         <!-- LIST USER -->
                         <div class="list_user">
@@ -108,7 +109,32 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
                         </div>
+                         <!-- CHAT AREA LIVE -->
+                    <div class="chat_live">
+                        <ul>
+                            <!-- <li>Esempio 1</li>
+                            <li>Esempio 2</li>  -->
+                            <li v-for="(element, index) in contacts[2].messages"
+                            :class="element.status === 'sent' ? 'sent' : 'received'">
+                                {{ element.text }}
+                                <!-- <span>{{ element.date}}</span> -->
+                            </li>
+                        </ul>
                     </div>
+                    <!-- KIND MESAGGES -->
+                    <div class="kind_message">
+                        <div class="emoticon">
+                            <i class="far fa-smile"></i>
+                        </div>
+                        <div class="range_text">
+                            <input type="text" placeholder="Scrivi un messaggio">
+                        </div>
+                        <div class="message_item">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- END CHAT AREA LIVE -->
                 <!-- END COLUMN RIGHT -->
             </div>
         </div>

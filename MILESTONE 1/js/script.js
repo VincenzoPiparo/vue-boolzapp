@@ -99,6 +99,11 @@ const app = new Vue({
 				]
 			}
 		]
+		// Dichiarare la variabile
+		
 	},
-	methods: {}
+	methods: {
+		// Dichiarare le funzioni
+	 }
+	
 });
