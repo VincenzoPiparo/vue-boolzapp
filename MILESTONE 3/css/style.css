@@ -126,6 +126,9 @@ ul{
 	outline: none;
 }
 /* LIST USER */
+.list_user{
+    overflow-y: auto;
+}
 .list_user img{
     width: 50px;
     border-radius: 50%;
@@ -171,10 +174,11 @@ ul li{
 }
 /* SECTION CHAT LIVE */
 .chat_live{
+    overflow-y: auto;
     flex-grow: 1;
-    width: 85%;
-    margin: auto;
-    background-color: #e4ddd4;
+    width: 100%;
+    padding: 10px 15px;
+    background-image: url(../img/mine.jpg);
 }
 
 .chat_live ul{

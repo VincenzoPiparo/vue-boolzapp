@@ -111,7 +111,7 @@
                             <i class="far fa-smile"></i>
                         </div>
                         <div class="range_text">
-                            <input type="text" placeholder="Scrivi un messaggio">
+                            <input @keyup.enter="newSentMessage(); autoReplyOk();" type="text" placeholder="Scrivi un messaggio" v-model="myMessage">
                         </div>
                         <div class="message_item">
                             <i class="fas fa-microphone"></i>
