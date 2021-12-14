@@ -1,13 +1,4 @@
 Vue.config.devtools = true;
-// Descrizione:
-// Milestone 1
-// Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
-// Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
-// Consigli utili:
-// Si possono trascurare le scrollbar verticali, sia nel pannello dei messaggi, che nella lista dei contatti
-// I pulsanti e le icone possono non funzionare (a parte l’invio del messaggio)
-// Per gestire le date, può essere utile la libreria day.js
-
 
 // ARRAY CONTACTS
 
@@ -15,6 +6,7 @@ const app = new Vue(
     {
         el: '#root',
         data: {
+            resultOfSearch:'',
             myMessage: '',
             actived: 0,
             contacts: [
@@ -104,11 +96,11 @@ const app = new Vue(
             ]
         },
         methods: {
-			// Funzione che permette il cambio dell'utente al click, incrementando l'indice
+			// Function that allows the user to change by clicking, increasing the index
             changeUsers: function(index) {
                 this.actived = index;
             },
-			// Funzione che permette di stampare nella chat il messaggio inviato
+			// Function that allows you to print the sent message in the chat
             newSentMessage: function() {
                 this.contacts[this.actived].messages.push(
                     {
@@ -117,9 +109,9 @@ const app = new Vue(
                         status: 'sent'
                     }
                 );
-                this.myMessage = ''
+                this.myMessage = '';
             },
-			// Funzione che permette di stampare nella chat il messaggio ricevuto e far rispondere all'interlocutore in modo automatico mediante un timer di 1 secondo
+			// Function that allows you to print the message received in the chat and have the interlocutor answer automatically using a 1 second timero
             autoReply: function() {
                 setTimeout(() => {
                     this.contacts[this.actived].messages.push(
@@ -130,6 +122,20 @@ const app = new Vue(
                         }
                     );
                 }, 1000);
+            },
+            //  DAY JS library to insert current date and time
+            getCurrentTime() {
+                return dayjs().format("DD/MM/YYYY HH:mm:ss")
+            },
+            // Function to filter the username based on its letters
+            searchUserOnList: function() {
+                this.contacts.forEach((element) => {
+                    if(element.name.toLowerCase().includes(this.resultOfSearch.toLowerCase())) {
+                        element.visible = true;
+                    } else {
+                        element.visible = false;
+                    }
+                });
             }
         }
     }

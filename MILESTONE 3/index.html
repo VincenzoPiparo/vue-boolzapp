@@ -11,9 +11,9 @@
 
 </head>
 <body>
-    <!-- COLLEGAMENTO VUEJS -->
+    <!--VUEJS CONNECTION -->
     <div id="root">
-        <!-- PREPARAZIONE LAYOUT -->
+        <!-- LAYOUT PREPARATION -->
         <div class="back_top">
             <div class="container_app">
                 <!-- COLUMN LEFT -->
@@ -51,13 +51,13 @@
                         <div class="quest_chats">
                             <div class="icon_in">
                                 <i class="fas fa-search"></i>
-                                <input type="text"  placeholder="Cerca o inizia una nuova chat">    
+                                <input @keyup="searchUserOnList()" type="text" placeholder="Cerca o inizia una nuova chat" v-model="resultOfSearch">
                             </div>
                         </div>
                         <!-- LIST USER -->
                         <div class="list_user">
                             <ul>
-                                <li @click="changeUsers(index)" v-for="(contact, index) in contacts">
+                                <li @click="changeUsers(index)" v-if="contact.visible" v-for="(contact, index) in contacts">
                                     <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                                     <span>{{ contact.name }}</span>
                                 </li>
@@ -72,9 +72,9 @@
                         <!-- CHAT USERS -->
                         <div class="present_user">
                             <div class="present_user_info">
-                                <!-- CICLO V FOR PER SWITCHARE UTENTE OGNI QUALVOLTA SI CLICCA SU UN DIVERSO UTENTE -->
+                                <!-- V FOR CYCLE TO SWITCH USER EVERY TIME YOU CLICK ON A DIFFERENT USER -->
                                 <div class="present_img_user">
-                                    <!-- USARE IL V-BIND PER SELEZIONARE L'IMMAGINE DELL'USER DIVERSA AD OGNI CHANGE -->
+                                    <!-- USE THE V-BIND TO SELECT THE DIFFERENT USER IMAGE AT EVERY CHANGE -->
                                     <img :src="'img/avatar' + contacts[actived].avatar + '.jpg'" alt="">
                                 </div>
 
@@ -102,6 +102,7 @@
                             :class="element.status === 'sent' ? 'sent' : 'received'">
                                 {{ element.text }}
                                 <!-- <span>{{ element.date}}</span> -->
+                                <div class="date">{{ element.date }}</div>
                             </li>
                         </ul>
                     </div>
@@ -123,42 +124,8 @@
             </div>
         </div>
     </div>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
+    <!-- LIBRERIA DAY JS -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
