@@ -120,7 +120,7 @@ const app = new Vue(
                 this.myMessage = ''
             },
 			// Funzione che permette di stampare nella chat il messaggio ricevuto e far rispondere all'interlocutore in modo automatico mediante un timer di 1 secondo
-            autoReplyOk: function() {
+            autoReply: function() {
                 setTimeout(() => {
                     this.contacts[this.actived].messages.push(
                         {
